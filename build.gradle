@@ -64,6 +64,15 @@ minecraft {
     }
 }
 
+repositories {
+    mavenLocal()
+    maven {
+        name = "Titanium"
+        url = "https://cdn.hrzn.studio/maven/"
+    }
+}
+
 dependencies {
     minecraft 'net.minecraftforge:forge:1.15.2-31.1.35'
+    compile fg.deobf("com.hrznstudio:titanium:${minecraft_version}-${titanium_version}")
 }
