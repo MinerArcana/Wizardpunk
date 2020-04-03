@@ -1,9 +1,11 @@
 modLoader="javafml"
 loaderVersion="[31,)"
+issueTrackerURL="https://github.com/Miner-Arcana/Wizardpunk/issues"
 
 [[mods]]
     modId="wizardpunk"
     version="${file.jarVersion}"
     displayName="Wizardpunk"
+    authors="SkySom"
     description='''
-    ```
+    '''
