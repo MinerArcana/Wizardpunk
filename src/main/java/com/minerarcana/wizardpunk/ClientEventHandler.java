@@ -1,7 +1,7 @@
 package com.minerarcana.wizardpunk;
 
 import com.minerarcana.wizardpunk.content.WizardpunkEntities;
-import com.minerarcana.wizardpunk.renderer.DRMGolemRenderer;
+import com.minerarcana.wizardpunk.renderer.drmgolem.DRMGolemRenderer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;

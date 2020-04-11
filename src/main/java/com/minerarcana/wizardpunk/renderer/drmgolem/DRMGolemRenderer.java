@@ -1,4 +1,4 @@
-package com.minerarcana.wizardpunk.renderer;
+package com.minerarcana.wizardpunk.renderer.drmgolem;
 
 import com.minerarcana.wizardpunk.Wizardpunk;
 import com.minerarcana.wizardpunk.entity.DRMGolemEntity;
@@ -17,7 +17,7 @@ public class DRMGolemRenderer extends MobRenderer<DRMGolemEntity, IronGolemModel
 
     public DRMGolemRenderer(EntityRendererManager renderManagerIn) {
         super(renderManagerIn, new IronGolemModel<>(), 0.7F);
-
+        this.addLayer(new DRMGolemPamphletLayer(this));
     }
 
     @Override
@@ -27,11 +27,10 @@ public class DRMGolemRenderer extends MobRenderer<DRMGolemEntity, IronGolemModel
     }
 
     @Override
-    protected void applyRotations(DRMGolemEntity entityLiving, @Nonnull MatrixStack matrixStack, float ageInTicks,
+    protected void applyRotations(@Nonnull DRMGolemEntity entityLiving, @Nonnull MatrixStack matrixStack, float ageInTicks,
                                   float rotationYaw, float partialTicks) {
         super.applyRotations(entityLiving, matrixStack, ageInTicks, rotationYaw, partialTicks);
         if (!((double) entityLiving.limbSwingAmount < 0.01D)) {
-            float f = 13.0F;
             float f1 = entityLiving.limbSwing - entityLiving.limbSwingAmount * (1.0F - partialTicks) + 6.0F;
             float f2 = (Math.abs(f1 % 13.0F - 6.5F) - 3.25F) / 3.25F;
             matrixStack.rotate(Vector3f.ZP.rotationDegrees(6.5F * f2));
