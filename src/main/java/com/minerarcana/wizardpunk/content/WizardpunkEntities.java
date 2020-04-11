@@ -2,6 +2,7 @@ package com.minerarcana.wizardpunk.content;
 
 import com.minerarcana.wizardpunk.Wizardpunk;
 import com.minerarcana.wizardpunk.entity.DRMGolemEntity;
+import com.minerarcana.wizardpunk.entity.WarPigEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -14,9 +15,14 @@ public class WizardpunkEntities {
             Wizardpunk.ID);
 
     public static final RegistryObject<EntityType<DRMGolemEntity>> DRM_GOLEM = ENTITIES.register("drm_golem",
-            () -> EntityType.Builder.<DRMGolemEntity>create(DRMGolemEntity::new, EntityClassification.MISC)
+            () -> EntityType.Builder.create(DRMGolemEntity::new, EntityClassification.MISC)
                     .size(1.4F, 2.7F)
                     .build("drm_golem"));
+
+    public static final RegistryObject<EntityType<WarPigEntity>> WAR_PIG = ENTITIES.register("war_pig",
+            () -> EntityType.Builder.create(WarPigEntity::new, EntityClassification.MONSTER)
+                    .size(1.95F, 2.2F)
+                    .build("war_pig"));
 
     public static void register(IEventBus modBus) {
         ENTITIES.register(modBus);
