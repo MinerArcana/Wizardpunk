@@ -9,8 +9,8 @@ import static com.minerarcana.wizardpunk.content.WizardpunkBlocks.OPPRESSIVE_EMI
 
 public class WizardpunkGroup extends ItemGroup {
 
-    public WizardpunkGroup(int index, String label) {
-        super(index, label);
+    public WizardpunkGroup(String label) {
+        super(label);
     }
 
     @Override

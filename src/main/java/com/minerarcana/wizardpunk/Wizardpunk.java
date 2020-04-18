@@ -4,6 +4,7 @@ import com.minerarcana.wizardpunk.content.WizardpunkBlocks;
 import com.minerarcana.wizardpunk.content.WizardpunkEntities;
 import com.minerarcana.wizardpunk.content.WizardpunkItems;
 import com.minerarcana.wizardpunk.datagen.WizardpunkGenerator;
+import com.minerarcana.wizardpunk.event.ClientEventHandler;
 import com.minerarcana.wizardpunk.world.VillageAdditions;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.api.distmarker.Dist;
@@ -18,7 +19,7 @@ public class Wizardpunk {
 
     public static final String ID = "wizardpunk";
 
-    public static final WizardpunkGroup ITEM_GROUP = new WizardpunkGroup(ItemGroup.GROUPS.length, "wizardpunk_group");
+    public static final WizardpunkGroup ITEM_GROUP = new WizardpunkGroup(ID);
 
     public Wizardpunk() {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();

@@ -1,6 +1,6 @@
 {
   "parent": "block/cube_all",
   "textures": {
-    "all": "wizardpunk:blocks/oppressive_emitter"
+    "all": "wizardpunk:block/oppressive_emitter"
   }
 }
