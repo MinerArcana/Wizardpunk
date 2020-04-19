@@ -1,6 +1,10 @@
 package com.minerarcana.wizardpunk.item;
 
 import com.minerarcana.wizardpunk.Wizardpunk;
+import com.minerarcana.wizardpunk.content.WizardpunkEntities;
+import com.minerarcana.wizardpunk.entity.friendly.MiniCatEntity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.passive.ParrotEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -37,6 +41,14 @@ public class NekomanticAmuletItem extends Item {
         if (world.dimension.hasSkyLight()) {
             if (isDayTime(world)) {
                 player.getFoodStats().addStats(1, 10);
+            } else {
+                if (player.getRightShoulderEntity().isEmpty() && player.getLeftShoulderEntity().isEmpty()) {
+                    MiniCatEntity miniCatEntity = WizardpunkEntities.MINI_CAT.get().create(world);
+                    if (!world.isRemote() && miniCatEntity != null) {
+                        player.addShoulderEntity(miniCatEntity.serializeNBT());
+                    }
+                }
+
             }
 
             return ActionResult.resultSuccess(heldStack);

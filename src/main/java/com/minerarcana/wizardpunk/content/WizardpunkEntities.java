@@ -3,6 +3,7 @@ package com.minerarcana.wizardpunk.content;
 import com.minerarcana.wizardpunk.Wizardpunk;
 import com.minerarcana.wizardpunk.entity.DRMGolemEntity;
 import com.minerarcana.wizardpunk.entity.WarPigEntity;
+import com.minerarcana.wizardpunk.entity.friendly.MiniCatEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -23,6 +24,11 @@ public class WizardpunkEntities {
             () -> EntityType.Builder.create(WarPigEntity::new, EntityClassification.MONSTER)
                     .size(1.95F, 2.2F)
                     .build("war_pig"));
+
+    public static final RegistryObject<EntityType<MiniCatEntity>> MINI_CAT = ENTITIES.register("mini_cat",
+            () -> EntityType.Builder.create(MiniCatEntity::new, EntityClassification.MISC)
+                    .size(0.3F, 0.4F)
+                    .build("mini_cat"));
 
     public static void register(IEventBus modBus) {
         ENTITIES.register(modBus);
