@@ -1,4 +1,4 @@
-package com.minerarcana.wizardpunk.entity;
+package com.minerarcana.wizardpunk.entity.oppressor;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.monster.AbstractIllagerEntity;

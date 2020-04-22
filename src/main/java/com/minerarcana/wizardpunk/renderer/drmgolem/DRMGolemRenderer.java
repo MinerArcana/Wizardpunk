@@ -1,7 +1,7 @@
 package com.minerarcana.wizardpunk.renderer.drmgolem;
 
 import com.minerarcana.wizardpunk.Wizardpunk;
-import com.minerarcana.wizardpunk.entity.DRMGolemEntity;
+import com.minerarcana.wizardpunk.entity.oppressor.DRMGolemEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.renderer.Vector3f;
 import net.minecraft.client.renderer.entity.EntityRendererManager;

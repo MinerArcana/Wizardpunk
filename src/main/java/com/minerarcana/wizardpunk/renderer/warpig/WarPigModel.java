@@ -1,7 +1,7 @@
 package com.minerarcana.wizardpunk.renderer.warpig;
 
 import com.google.common.collect.ImmutableList;
-import com.minerarcana.wizardpunk.entity.WarPigEntity;
+import com.minerarcana.wizardpunk.entity.oppressor.WarPigEntity;
 import net.minecraft.client.renderer.entity.model.SegmentedModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;

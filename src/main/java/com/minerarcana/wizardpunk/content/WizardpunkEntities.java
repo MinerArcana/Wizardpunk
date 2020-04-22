@@ -1,9 +1,10 @@
 package com.minerarcana.wizardpunk.content;
 
 import com.minerarcana.wizardpunk.Wizardpunk;
-import com.minerarcana.wizardpunk.entity.DRMGolemEntity;
-import com.minerarcana.wizardpunk.entity.WarPigEntity;
 import com.minerarcana.wizardpunk.entity.friendly.MiniCatEntity;
+import com.minerarcana.wizardpunk.entity.oppressor.DRMGolemEntity;
+import com.minerarcana.wizardpunk.entity.oppressor.EnforcerEntity;
+import com.minerarcana.wizardpunk.entity.oppressor.WarPigEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -24,6 +25,11 @@ public class WizardpunkEntities {
             () -> EntityType.Builder.create(WarPigEntity::new, EntityClassification.MONSTER)
                     .size(1.95F, 2.2F)
                     .build("war_pig"));
+
+    public static final RegistryObject<EntityType<EnforcerEntity>> ENFORCER = ENTITIES.register("enforcer",
+            () -> EntityType.Builder.create(EnforcerEntity::new, EntityClassification.MISC)
+                    .size(0.6F, 1.95F)
+                    .build("enforcer"));
 
     public static final RegistryObject<EntityType<MiniCatEntity>> MINI_CAT = ENTITIES.register("mini_cat",
             () -> EntityType.Builder.create(MiniCatEntity::new, EntityClassification.MISC)

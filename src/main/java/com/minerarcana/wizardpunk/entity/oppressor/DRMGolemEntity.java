@@ -1,6 +1,5 @@
-package com.minerarcana.wizardpunk.entity;
+package com.minerarcana.wizardpunk.entity.oppressor;
 
-import com.minerarcana.wizardpunk.content.tags.WizardpunkEntityTags;
 import com.minerarcana.wizardpunk.entity.ai.AIPredicates;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -28,7 +27,7 @@ public class DRMGolemEntity extends IronGolemEntity {
         this.targetSelector.addGoal(1, new DefendVillageTargetGoal(this));
         this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, LivingEntity.class,
-                5, false, true, AIPredicates.NOT_OPPRESSED));
+                5, false, true, AIPredicates.NOT_OPPRESSION));
     }
 
     @Override

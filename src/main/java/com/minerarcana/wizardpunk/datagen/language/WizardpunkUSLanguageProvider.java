@@ -18,6 +18,8 @@ public class WizardpunkUSLanguageProvider extends LanguageProvider {
     protected void addTranslations() {
         this.add(WizardpunkEntities.DRM_GOLEM.get(), "DRM Golem");
         this.add(WizardpunkEntities.WAR_PIG.get(), "War Pig");
+        this.add(WizardpunkEntities.MINI_CAT.get(), "Mini Cat");
+        this.add(WizardpunkEntities.ENFORCER.get(), "Enforcer");
 
         this.add(WizardpunkItems.PAMPHLET.get(), "Pamphlet");
         this.add(WizardpunkItems.NEKOMANTIC_AMULET.get(), "Nekomantic Amulet");
@@ -26,6 +28,8 @@ public class WizardpunkUSLanguageProvider extends LanguageProvider {
         this.add(WizardpunkBlocks.OPPRESSIVE_ATMOSPHERE.get(), "Oppressive Atmosphere");
 
         this.add("itemGroup.wizardpunk", "Wizardpunk");
+
+        this.add("text.wizardpunk.entering_oppressed_chunk", "Entering Oppressed Chunk");
     }
 
     @Override

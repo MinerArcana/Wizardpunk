@@ -1,6 +1,6 @@
 package com.minerarcana.wizardpunk.entity.ai;
 
-import com.minerarcana.wizardpunk.entity.WarPigEntity;
+import com.minerarcana.wizardpunk.entity.oppressor.WarPigEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 

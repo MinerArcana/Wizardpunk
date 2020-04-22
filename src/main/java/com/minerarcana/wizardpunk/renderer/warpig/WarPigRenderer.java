@@ -1,7 +1,7 @@
 package com.minerarcana.wizardpunk.renderer.warpig;
 
 import com.minerarcana.wizardpunk.Wizardpunk;
-import com.minerarcana.wizardpunk.entity.WarPigEntity;
+import com.minerarcana.wizardpunk.entity.oppressor.WarPigEntity;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;

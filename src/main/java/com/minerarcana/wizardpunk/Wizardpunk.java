@@ -4,8 +4,12 @@ import com.minerarcana.wizardpunk.content.WizardpunkBlocks;
 import com.minerarcana.wizardpunk.content.WizardpunkEntities;
 import com.minerarcana.wizardpunk.content.WizardpunkItems;
 import com.minerarcana.wizardpunk.datagen.WizardpunkGenerator;
+import com.minerarcana.wizardpunk.event.ClientEventHandler;
+import com.minerarcana.wizardpunk.event.EventHandler;
 import com.minerarcana.wizardpunk.world.VillageAdditions;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
@@ -28,6 +32,8 @@ public class Wizardpunk {
         WizardpunkItems.register(modBus);
 
         modBus.addListener(WizardpunkGenerator::registerGenerators);
+
+        MinecraftForge.EVENT_BUS.addListener(EventHandler::onEnterChunk);
 
         DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> modBus.addListener(ClientEventHandler::clientSetup));
 

@@ -1,4 +1,4 @@
-package com.minerarcana.wizardpunk.entity;
+package com.minerarcana.wizardpunk.entity.oppressor;
 
 import com.minerarcana.wizardpunk.entity.ai.AIPredicates;
 import com.minerarcana.wizardpunk.entity.ai.WarPigAttackGoal;
@@ -24,6 +24,6 @@ public class WarPigEntity extends RavagerEntity {
         this.targetSelector.addGoal(2, (new HurtByTargetGoal(this, DRMGolemEntity.class)).setCallsForHelp());
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.addGoal(4, new NearestAttackableTargetGoal<>(this, LivingEntity.class,
-                10, true, false, AIPredicates.NOT_OPPRESSED));
+                10, true, false, AIPredicates.NOT_OPPRESSION));
     }
 }
