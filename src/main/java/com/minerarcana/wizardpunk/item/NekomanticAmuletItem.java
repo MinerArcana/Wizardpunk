@@ -45,6 +45,11 @@ public class NekomanticAmuletItem extends Item {
                 if (player.getRightShoulderEntity().isEmpty() && player.getLeftShoulderEntity().isEmpty()) {
                     MiniCatEntity miniCatEntity = WizardpunkEntities.MINI_CAT.get().create(world);
                     if (!world.isRemote() && miniCatEntity != null) {
+                        if (world.getCurrentMoonPhaseFactor() > 0.9F) {
+                            miniCatEntity.setCatType(world.rand.nextInt(11));
+                        } else {
+                            miniCatEntity.setCatType(world.rand.nextInt(10));
+                        }
                         player.addShoulderEntity(miniCatEntity.serializeNBT());
                     }
                 }
