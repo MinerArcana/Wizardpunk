@@ -2,6 +2,7 @@ package com.minerarcana.wizardpunk.content;
 
 import com.minerarcana.wizardpunk.Wizardpunk;
 import com.minerarcana.wizardpunk.entity.friendly.MiniCatEntity;
+import com.minerarcana.wizardpunk.entity.neutral.ZephyrusEntity;
 import com.minerarcana.wizardpunk.entity.oppressor.DRMGolemEntity;
 import com.minerarcana.wizardpunk.entity.oppressor.EnforcerEntity;
 import com.minerarcana.wizardpunk.entity.oppressor.WarPigEntity;
@@ -35,6 +36,10 @@ public class WizardpunkEntities {
             () -> EntityType.Builder.create(MiniCatEntity::new, EntityClassification.MISC)
                     .size(0.3F, 0.4F)
                     .build("mini_cat"));
+
+    public static final RegistryObject<EntityType<ZephyrusEntity>> ZEPHYRUS = ENTITIES.register("zephyrus",
+            () -> EntityType.Builder.create(ZephyrusEntity::new, EntityClassification.MISC)
+                    .size(0.25F, 0.25F).build("zephyrus"));
 
     public static void register(IEventBus modBus) {
         ENTITIES.register(modBus);
