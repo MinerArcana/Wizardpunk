@@ -1,7 +1,7 @@
 package com.minerarcana.wizardpunk.content;
 
 import com.minerarcana.wizardpunk.Wizardpunk;
-import com.minerarcana.wizardpunk.item.NekomanticAmuletItem;
+import com.minerarcana.wizardpunk.item.magic.NekomanticAmuletItem;
 import com.minerarcana.wizardpunk.item.PamphletItem;
 import com.minerarcana.wizardpunk.item.magic.ZephyrusItem;
 import net.minecraft.item.Item;
