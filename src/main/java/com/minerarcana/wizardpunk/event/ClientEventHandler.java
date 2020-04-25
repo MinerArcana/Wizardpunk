@@ -2,7 +2,7 @@ package com.minerarcana.wizardpunk.event;
 
 import com.minerarcana.wizardpunk.content.WizardpunkEntities;
 import com.minerarcana.wizardpunk.renderer.EnforcerRenderer;
-import com.minerarcana.wizardpunk.renderer.ZephyrusRenderer;
+import com.minerarcana.wizardpunk.renderer.zephyrus.ZephyrusRenderer;
 import com.minerarcana.wizardpunk.renderer.drmgolem.DRMGolemRenderer;
 import com.minerarcana.wizardpunk.renderer.layer.MiniCatLayer;
 import com.minerarcana.wizardpunk.renderer.warpig.WarPigRenderer;
