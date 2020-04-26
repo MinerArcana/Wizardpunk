@@ -12,6 +12,9 @@ import com.minerarcana.wizardpunk.content.WizardpunkMiniGames;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TranslationTextComponent;
+
+import javax.annotation.Nonnull;
 
 public class CryptomancyScreen extends BasicContainerScreen<CryptomancyContainer> implements IMiniGameScreen {
     private final MiniGameInstance miniGameInstance;
@@ -43,7 +46,9 @@ public class CryptomancyScreen extends BasicContainerScreen<CryptomancyContainer
             miniGameInstance.start();
         }
 
-        miniGameInstance.tick();
+        if (miniGameInstance.getStatus() == MiniGameStatus.PLAYING) {
+            miniGameInstance.tick();
+        }
 
         if (miniGameInstance.getStatus() == MiniGameStatus.WON) {
             Wizardpunk.instance.networkHandler.sendHackResult(true, this.getContainer().getTargetUniqueId());
@@ -56,7 +61,12 @@ public class CryptomancyScreen extends BasicContainerScreen<CryptomancyContainer
 
     @Override
     public boolean keyPressed(int keyCode, int scan, int modifiers) {
-        return miniGameInstance.keyPressed(keyCode, scan, modifiers) || super.keyPressed(keyCode, scan, modifiers);
+        if (miniGameInstance.getStatus() == MiniGameStatus.PLAYING) {
+            if (miniGameInstance.keyPressed(keyCode, scan, modifiers)) {
+                return true;
+            }
+        }
+        return super.keyPressed(keyCode, scan, modifiers);
     }
 
     @Override

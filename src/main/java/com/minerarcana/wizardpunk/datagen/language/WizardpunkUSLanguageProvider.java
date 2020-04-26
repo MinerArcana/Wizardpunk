@@ -23,6 +23,7 @@ public class WizardpunkUSLanguageProvider extends LanguageProvider {
 
         this.add(WizardpunkItems.PAMPHLET.get(), "Pamphlet");
         this.add(WizardpunkItems.NEKOMANTIC_AMULET.get(), "Nekomantic Amulet");
+        this.add(WizardpunkItems.CRYPTOMANCY.get(), "Scroll of Cryptomancy");
 
         this.add(WizardpunkBlocks.OPPRESSIVE_EMITTER.get(), "Oppressive Emitter");
         this.add(WizardpunkBlocks.OPPRESSIVE_ATMOSPHERE.get(), "Oppressive Atmosphere");
@@ -30,6 +31,9 @@ public class WizardpunkUSLanguageProvider extends LanguageProvider {
         this.add("itemGroup.wizardpunk", "Wizardpunk");
 
         this.add("text.wizardpunk.entering_oppressed_chunk", "Entering Oppressed Chunk");
+        this.add("text.wizardpunk.cryptomancy", "%s: %s");
+        this.add("text.wizardpunk.hack_complete", "Hack Complete");
+        this.add("text.wizardpunk.hack_failed", "Hack Failed");
     }
 
     @Override
