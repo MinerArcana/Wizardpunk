@@ -1,10 +1,7 @@
 package com.minerarcana.wizardpunk;
 
 import com.minerarcana.wizardpunk.api.cryptomancy.MiniGame;
-import com.minerarcana.wizardpunk.content.WizardpunkBlocks;
-import com.minerarcana.wizardpunk.content.WizardpunkEntities;
-import com.minerarcana.wizardpunk.content.WizardpunkItems;
-import com.minerarcana.wizardpunk.content.WizardpunkMiniGames;
+import com.minerarcana.wizardpunk.content.*;
 import com.minerarcana.wizardpunk.datagen.WizardpunkGenerator;
 import com.minerarcana.wizardpunk.event.ClientEventHandler;
 import com.minerarcana.wizardpunk.event.EventHandler;
@@ -56,6 +53,7 @@ public class Wizardpunk {
         WizardpunkBlocks.register(modBus);
         WizardpunkItems.register(modBus);
         WizardpunkMiniGames.register(modBus);
+        WizardpunkContainers.register(modBus);
     }
 
 }

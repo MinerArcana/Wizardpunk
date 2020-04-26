@@ -6,17 +6,20 @@ import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
 
 import javax.annotation.Nonnull;
+import java.awt.event.KeyEvent;
 import java.util.List;
 
 public class NumeramancyMiniGameInstance extends MiniGameInstance {
     private MiniGameStatus status = MiniGameStatus.NOT_STARTED;
-    private final int tileSize = 4;
+    private final int gridSize = 4;
     private int endValue = 64;
     private int[] tileValues;
 
     @Override
     public void setup() {
-        this.tileValues = new int[tileSize * tileSize];
+        this.tileValues = new int[gridSize * gridSize];
+        addTile();
+        addTile();
     }
 
     @Override
@@ -46,9 +49,37 @@ public class NumeramancyMiniGameInstance extends MiniGameInstance {
         return status;
     }
 
+    @Override
+    public boolean keyPressed(int keyCode, int scan, int modifiers) {
+        switch (keyCode) {
+            case 87:
+            case 265:
+                up();
+                return true;
+            case 83:
+            case 264:
+                down();
+                return true;
+            case 65:
+            case 263:
+                left();
+                return true;
+            case 68:
+            case 262:
+                right();
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    public int getGridSize() {
+        return this.gridSize;
+    }
+
     public void left() {
         boolean needAddTile = false;
-        for (int i = 0; i < tileSize; i++) {
+        for (int i = 0; i < gridSize; i++) {
             int[] line = getLine(i);
             int[] merged = mergeLine(moveLine(line));
             setLine(i, merged);
@@ -119,24 +150,24 @@ public class NumeramancyMiniGameInstance extends MiniGameInstance {
     }
 
 
-    private int valueAt(int x, int y) {
-        return tileValues[x + y * tileSize];
+    public int valueAt(int x, int y) {
+        return tileValues[x + y * gridSize];
     }
 
     private int[] getLine(int index) {
-        int[] result = new int[tileSize];
-        for (int i = 0; i < tileSize; i++) {
+        int[] result = new int[gridSize];
+        for (int i = 0; i < gridSize; i++) {
             result[i] = valueAt(i, index);
         }
         return result;
     }
 
     private void setLine(int index, int[] newLine) {
-        System.arraycopy(newLine, 0, tileValues, index * tileSize, tileSize);
+        System.arraycopy(newLine, 0, tileValues, index * gridSize, gridSize);
     }
 
     private int[] rotate(int angle) {
-        int[] newTiles = new int[tileSize * tileSize];
+        int[] newTiles = new int[gridSize * gridSize];
         int offsetX = 3, offsetY = 3;
         if (angle == 90) {
             offsetY = 0;
@@ -174,7 +205,7 @@ public class NumeramancyMiniGameInstance extends MiniGameInstance {
 
     private int[] moveLine(int[] oldLine) {
         IntList l = new IntArrayList();
-        for (int i = 0; i < tileSize; i++) {
+        for (int i = 0; i < gridSize; i++) {
             if (oldLine[i] != 0) {
                 l.add(oldLine[i]);
             }
@@ -182,9 +213,9 @@ public class NumeramancyMiniGameInstance extends MiniGameInstance {
         if (l.size() == 0) {
             return oldLine;
         } else {
-            int[] newLine = new int[tileSize];
-            ensureSize(l, tileSize);
-            for (int i = 0; i < tileSize; i++) {
+            int[] newLine = new int[gridSize];
+            ensureSize(l, gridSize);
+            for (int i = 0; i < gridSize; i++) {
                 newLine[i] = l.removeInt(0);
             }
             return newLine;
@@ -193,7 +224,7 @@ public class NumeramancyMiniGameInstance extends MiniGameInstance {
 
     private int[] mergeLine(int[] oldLine) {
         IntList list = new IntArrayList();
-        for (int i = 0; i < tileSize && oldLine[i] != 0; i++) {
+        for (int i = 0; i < gridSize && oldLine[i] != 0; i++) {
             int num = oldLine[i];
             if (i < 3 && oldLine[i] == oldLine[i + 1]) {
                 num *= 2;
@@ -207,8 +238,8 @@ public class NumeramancyMiniGameInstance extends MiniGameInstance {
         if (list.size() == 0) {
             return oldLine;
         } else {
-            ensureSize(list, tileSize);
-            return list.toArray(new int[tileSize]);
+            ensureSize(list, gridSize);
+            return list.toArray(new int[gridSize]);
         }
     }
 

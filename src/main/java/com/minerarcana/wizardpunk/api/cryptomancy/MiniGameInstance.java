@@ -16,4 +16,6 @@ public abstract class MiniGameInstance {
 
     @Nonnull
     public abstract MiniGameStatus getStatus();
+
+    public abstract boolean keyPressed(int keyCode, int scan, int modifiers);
 }
