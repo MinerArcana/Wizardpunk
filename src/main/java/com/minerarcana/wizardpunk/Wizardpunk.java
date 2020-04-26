@@ -5,6 +5,7 @@ import com.minerarcana.wizardpunk.content.*;
 import com.minerarcana.wizardpunk.datagen.WizardpunkGenerator;
 import com.minerarcana.wizardpunk.event.ClientEventHandler;
 import com.minerarcana.wizardpunk.event.EventHandler;
+import com.minerarcana.wizardpunk.network.NetworkHandler;
 import com.minerarcana.wizardpunk.world.VillageAdditions;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
@@ -26,7 +27,12 @@ public class Wizardpunk {
 
     public static final WizardpunkGroup ITEM_GROUP = new WizardpunkGroup(ID);
 
+    public final NetworkHandler networkHandler;
+
+    public static Wizardpunk instance;
+
     public Wizardpunk() {
+        instance = this;
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         modBus.addListener(WizardpunkGenerator::registerGenerators);
         modBus.addListener(this::commonSetupEvent);
@@ -35,6 +41,7 @@ public class Wizardpunk {
         MinecraftForge.EVENT_BUS.addListener(EventHandler::onEnterChunk);
 
         DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> modBus.addListener(ClientEventHandler::clientSetup));
+        networkHandler = new NetworkHandler();
     }
 
     public void commonSetupEvent(FMLCommonSetupEvent event) {

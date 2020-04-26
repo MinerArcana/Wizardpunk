@@ -2,18 +2,16 @@ package com.minerarcana.wizardpunk.screen;
 
 import com.hrznstudio.titanium.client.screen.container.BasicContainerScreen;
 import com.minerarcana.wizardpunk.Wizardpunk;
-import com.minerarcana.wizardpunk.api.WizardpunkAPI;
 import com.minerarcana.wizardpunk.api.WizardpunkClientAPI;
 import com.minerarcana.wizardpunk.api.cryptomancy.IMiniGameRenderer;
 import com.minerarcana.wizardpunk.api.cryptomancy.IMiniGameScreen;
 import com.minerarcana.wizardpunk.api.cryptomancy.MiniGameInstance;
 import com.minerarcana.wizardpunk.api.cryptomancy.MiniGameStatus;
-import com.minerarcana.wizardpunk.container.CryptomancyContainer;
+import com.minerarcana.wizardpunk.container.cryptomancy.CryptomancyContainer;
 import com.minerarcana.wizardpunk.content.WizardpunkMiniGames;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.text.ITextComponent;
-import sun.rmi.transport.Transport;
 
 public class CryptomancyScreen extends BasicContainerScreen<CryptomancyContainer> implements IMiniGameScreen {
     private final MiniGameInstance miniGameInstance;
@@ -48,11 +46,11 @@ public class CryptomancyScreen extends BasicContainerScreen<CryptomancyContainer
         miniGameInstance.tick();
 
         if (miniGameInstance.getStatus() == MiniGameStatus.WON) {
-
+            Wizardpunk.instance.networkHandler.sendHackResult(true, this.getContainer().getTargetUniqueId());
         }
 
         if (miniGameInstance.getStatus() == MiniGameStatus.LOST) {
-
+            Wizardpunk.instance.networkHandler.sendHackResult(false, this.getContainer().getTargetUniqueId());
         }
     }
 
