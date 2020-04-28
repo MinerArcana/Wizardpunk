@@ -26,9 +26,11 @@ public class VillageAdditions {
         TaigaVillagePools.init();
         for (String biome : new String[]{"plains", "snowy", "savanna", "desert", "taiga"}) {
             addToPool(new ResourceLocation("village/" + biome + "/houses"),
-                    new ResourceLocation(ID, "guardpost_" + biome), 3);
+                    new ResourceLocation(ID, "guardpost_" + biome), 12);
             addToPool(new ResourceLocation("village/" + biome + "/decor"),
-                    new ResourceLocation(ID, "oppressive_emitter_" + biome), 1);
+                    new ResourceLocation(ID, "oppressive_emitter_" + biome), 4);
+            addToPool(new ResourceLocation("village/" + biome + "/terminators"),
+                    new ResourceLocation(ID, "mayorsmansion"), 1);
         }
 
     }
@@ -39,7 +41,7 @@ public class VillageAdditions {
         List<Pair<JigsawPiece, Integer>> newPieces = new ArrayList<>();
         newPieces.add(new Pair<>(new SingleJigsawPiece(toAdd.toString(), ImmutableList.of(), PlacementBehaviour.RIGID), weight));
         for (JigsawPiece p : shuffled) {
-            newPieces.add(new Pair<>(p, 1));
+            newPieces.add(new Pair<>(p, 2));
         }
         ResourceLocation something = old.func_214948_a();
         JigsawManager.REGISTRY.register(new JigsawPattern(pool, something, newPieces, PlacementBehaviour.RIGID));
