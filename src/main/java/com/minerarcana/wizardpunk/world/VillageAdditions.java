@@ -1,6 +1,7 @@
 package com.minerarcana.wizardpunk.world;
 
 import com.google.common.collect.ImmutableList;
+import com.minerarcana.wizardpunk.Wizardpunk;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.gen.feature.jigsaw.JigsawManager;
@@ -14,8 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static com.minerarcana.wizardpunk.Wizardpunk.ID;
-
 public class VillageAdditions {
 
     public static void init() {
@@ -26,11 +25,11 @@ public class VillageAdditions {
         TaigaVillagePools.init();
         for (String biome : new String[]{"plains", "snowy", "savanna", "desert", "taiga"}) {
             addToPool(new ResourceLocation("village/" + biome + "/houses"),
-                    new ResourceLocation(ID, "guard_post_" + biome), 12);
+                    new ResourceLocation(Wizardpunk.ID, "guard_post_" + biome), 12);
             addToPool(new ResourceLocation("village/" + biome + "/decor"),
-                    new ResourceLocation(ID, "oppressive_emitter_" + biome), 4);
+                    new ResourceLocation(Wizardpunk.ID, "oppressive_emitter_" + biome), 4);
             addToPool(new ResourceLocation("village/" + biome + "/terminators"),
-                    new ResourceLocation(ID, "mayors_mansion"), 1);
+                    new ResourceLocation(Wizardpunk.ID, "mayors_mansion"), 1);
         }
     }
 
