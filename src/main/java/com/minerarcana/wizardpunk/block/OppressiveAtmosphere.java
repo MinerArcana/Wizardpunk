@@ -7,7 +7,10 @@ import net.minecraft.block.material.Material;
 public class OppressiveAtmosphere extends Block {
 
     public OppressiveAtmosphere() {
-        super(Properties.create(Material.MISCELLANEOUS).notSolid().noDrops().variableOpacity().sound(SoundType.CLOTH));
+        super(Properties.create(Material.MISCELLANEOUS)
+                .notSolid()
+                .noDrops()
+                .variableOpacity());
     }
 
 }

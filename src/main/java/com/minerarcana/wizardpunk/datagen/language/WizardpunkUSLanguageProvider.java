@@ -25,8 +25,9 @@ public class WizardpunkUSLanguageProvider extends LanguageProvider {
         this.add(WizardpunkItems.NEKOMANTIC_AMULET.get(), "Nekomantic Amulet");
         this.add(WizardpunkItems.CRYPTOMANCY.get(), "Scroll of Cryptomancy");
 
-        this.add(WizardpunkBlocks.OPPRESSIVE_EMITTER.get(), "Oppressive Emitter");
+        this.add(WizardpunkBlocks.OPPRESSIVE_EMITTER.getBlock(), "Oppressive Emitter");
         this.add(WizardpunkBlocks.OPPRESSIVE_ATMOSPHERE.get(), "Oppressive Atmosphere");
+        WizardpunkBlocks.MILITARY_CRATES.values().forEach(militaryCrate -> this.add(militaryCrate.getBlock(), "Military Crate"));
 
         this.add("itemGroup.wizardpunk", "Wizardpunk");
 
