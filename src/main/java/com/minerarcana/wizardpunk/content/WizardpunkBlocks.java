@@ -27,7 +27,7 @@ public class WizardpunkBlocks {
             Wizardpunk.ID);
     private static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS,
             Wizardpunk.ID);
-    private static final DeferredRegister<TileEntityType<?>> TILE_ENTITY_TYPE = new DeferredRegister<>(
+    private static final DeferredRegister<TileEntityType<?>> TILE_ENTITY_TYPES = new DeferredRegister<>(
             ForgeRegistries.TILE_ENTITIES, Wizardpunk.ID);
 
     public static final BlockRegistryObjectGroup<OppressiveEmitter, BlockItem, ?> OPPRESSIVE_EMITTER =
@@ -43,7 +43,7 @@ public class WizardpunkBlocks {
                     .collect(Collectors.toMap(Pair::getKey, Pair::getValue));
 
     @SuppressWarnings("ConstantConditions")
-    public static final RegistryObject<TileEntityType<MilitaryCrateTileEntity>> MILITARY_CRATE_TYPE = TILE_ENTITY_TYPE.register(
+    public static final RegistryObject<TileEntityType<MilitaryCrateTileEntity>> MILITARY_CRATE_TYPE = TILE_ENTITY_TYPES.register(
             "military_crate", () -> TileEntityType.Builder.create(MilitaryCrateTileEntity::new,
                     MILITARY_CRATES.values()
                             .stream()
@@ -54,6 +54,7 @@ public class WizardpunkBlocks {
     public static void register(IEventBus modBus) {
         BLOCKS.register(modBus);
         ITEMS.register(modBus);
+        TILE_ENTITY_TYPES.register(modBus);
     }
 
     private static <B extends Block> Function<B, BlockItem> blockItemCreator() {
