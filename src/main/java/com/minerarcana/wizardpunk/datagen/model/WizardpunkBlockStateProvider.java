@@ -33,6 +33,8 @@ public class WizardpunkBlockStateProvider extends BlockStateProvider {
                     );
                 });
 
-        this.cubeAll(WizardpunkBlocks.OPPRESSIVE_EMITTER.getBlock());
+        this.simpleBlock(WizardpunkBlocks.OPPRESSIVE_EMITTER.getBlock());
+
+        this.simpleBlock(WizardpunkBlocks.OPPRESSIVE_ATMOSPHERE.get(), models().getBuilder("oppressive_atmosphere"));
     }
 }
