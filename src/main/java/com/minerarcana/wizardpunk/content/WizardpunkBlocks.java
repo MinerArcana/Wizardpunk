@@ -37,7 +37,7 @@ public class WizardpunkBlocks {
             "oppressive_atmosphere", OppressiveAtmosphere::new);
 
     public static final Map<String, BlockRegistryObjectGroup<MilitaryCrateBlock, BlockItem, ?>> MILITARY_CRATES =
-            Stream.of("desert")
+            Stream.of("desert", "jungle", "mushroom", "ocean", "plains", "podzol", "snow", "swamp")
                     .map(type -> Pair.of(type, WizardpunkBlocks.createMilitaryCrate(type)
                             .register(BLOCKS, ITEMS)))
                     .collect(Collectors.toMap(Pair::getKey, Pair::getValue));
