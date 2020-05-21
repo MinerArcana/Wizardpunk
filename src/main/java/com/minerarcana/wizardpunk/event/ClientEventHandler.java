@@ -1,21 +1,22 @@
 package com.minerarcana.wizardpunk.event;
 
-import com.minerarcana.wizardpunk.api.WizardpunkAPI;
 import com.minerarcana.wizardpunk.api.WizardpunkClientAPI;
 import com.minerarcana.wizardpunk.content.WizardpunkContainers;
 import com.minerarcana.wizardpunk.content.WizardpunkEntities;
 import com.minerarcana.wizardpunk.content.WizardpunkMiniGames;
-import com.minerarcana.wizardpunk.renderer.EnforcerRenderer;
-import com.minerarcana.wizardpunk.renderer.minigame.NumeramancyRenderer;
-import com.minerarcana.wizardpunk.renderer.zephyrus.ZephyrusRenderer;
 import com.minerarcana.wizardpunk.renderer.drmgolem.DRMGolemRenderer;
 import com.minerarcana.wizardpunk.renderer.layer.MiniCatLayer;
+import com.minerarcana.wizardpunk.renderer.minigame.NumeramancyRenderer;
 import com.minerarcana.wizardpunk.renderer.warpig.WarPigRenderer;
+import com.minerarcana.wizardpunk.renderer.zephyrus.ZephyrusRenderer;
 import com.minerarcana.wizardpunk.screen.CryptomancyScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScreenManager;
 import net.minecraft.client.renderer.entity.CatRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
+import net.minecraft.client.renderer.entity.VillagerRenderer;
+import net.minecraft.client.renderer.entity.VindicatorRenderer;
+import net.minecraft.resources.IReloadableResourceManager;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 public class ClientEventHandler {
@@ -24,8 +25,10 @@ public class ClientEventHandler {
         rendererManager.register(WizardpunkEntities.DRM_GOLEM.get(), new DRMGolemRenderer(rendererManager));
         rendererManager.register(WizardpunkEntities.WAR_PIG.get(), new WarPigRenderer(rendererManager));
         rendererManager.register(WizardpunkEntities.MINI_CAT.get(), new CatRenderer(rendererManager));
-        rendererManager.register(WizardpunkEntities.ENFORCER.get(), new EnforcerRenderer(rendererManager));
+        rendererManager.register(WizardpunkEntities.ENFORCER.get(), new VindicatorRenderer(rendererManager));
         rendererManager.register(WizardpunkEntities.ZEPHYRUS.get(), new ZephyrusRenderer(rendererManager));
+        rendererManager.register(WizardpunkEntities.OPPRESSED_VILLAGER.get(), new VillagerRenderer(rendererManager,
+                (IReloadableResourceManager) Minecraft.getInstance().getResourceManager()));
         
         event.getMinecraftSupplier().get()
                 .getRenderManager()

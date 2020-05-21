@@ -10,6 +10,9 @@ buildscript {
 }
 
 apply plugin: 'net.minecraftforge.gradle'
+apply plugin: "maven"
+apply plugin: "java"
+apply plugin: "idea"
 
 version = modVersion
 group = modGroup
@@ -19,6 +22,7 @@ sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = co
 
 minecraft {
     mappings channel: 'snapshot', version: '20200402-1.15.1'
+    accessTransformer = file('src/main/resources/META-INF/access_transformer.cfg')
     runs {
         client {
             workingDirectory project.file('run')
@@ -94,4 +98,27 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.15.2-31.1.35'
     compile fg.deobf("com.hrznstudio:titanium:${minecraft_version}-${titanium_version}")
+}
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title"     : "${title}",
+                "Specification-Vendor"    : "${team}",
+                "Specification-Version"   : "1",
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : "${version}",
+                "Implementation-Vendor"   : "${team}",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "FMLAT"                   : "access_transformer.cfg"
+        ])
+    }
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: "file://" + (System.getenv("local_maven") != null ? System.getenv("local_maven") : System.getenv("bamboo_local_maven")))
+        }
+    }
 }

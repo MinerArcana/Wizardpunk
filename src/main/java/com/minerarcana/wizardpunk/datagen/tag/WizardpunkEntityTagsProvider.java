@@ -17,6 +17,7 @@ public class WizardpunkEntityTagsProvider extends EntityTypeTagsProvider {
         this.getBuilder(WizardpunkEntityTags.OPPRESSORS)
                 .add(WizardpunkEntities.DRM_GOLEM.get(), WizardpunkEntities.WAR_PIG.get(),
                         WizardpunkEntities.ENFORCER.get());
+        this.getBuilder(WizardpunkEntityTags.OPPRESSED).add(WizardpunkEntities.OPPRESSED_VILLAGER.get());
     }
 
     @Override
