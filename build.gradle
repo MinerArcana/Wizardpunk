@@ -21,7 +21,7 @@ archivesBaseName = modBaseName
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
-    mappings channel: 'snapshot', version: '20200402-1.15.1'
+    mappings channel: 'snapshot', version: '20200709-1.15.1'
     accessTransformer = file('src/main/resources/META-INF/access_transformer.cfg')
     runs {
         client {
@@ -96,7 +96,7 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.15.2-31.1.35'
+    minecraft 'net.minecraftforge:forge:1.15.2-31.2.31'
     compile fg.deobf("com.hrznstudio:titanium:${minecraft_version}-${titanium_version}")
 }
 

@@ -1,6 +1,7 @@
 package com.minerarcana.wizardpunk.entity.oppressor;
 
 import com.minerarcana.wizardpunk.entity.ai.AIPredicates;
+import com.minerarcana.wizardpunk.entity.ai.SmokeStackGoal;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
@@ -24,6 +25,7 @@ public class DRMGolemEntity extends IronGolemEntity {
         this.goalSelector.addGoal(6, new WaterAvoidingRandomWalkingGoal(this, 0.6D));
         this.goalSelector.addGoal(7, new LookAtGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.addGoal(8, new LookRandomlyGoal(this));
+        this.goalSelector.addGoal(9,new SmokeStackGoal(this));
         this.targetSelector.addGoal(1, new DefendVillageTargetGoal(this));
         this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, LivingEntity.class,

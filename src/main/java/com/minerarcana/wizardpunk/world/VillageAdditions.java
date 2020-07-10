@@ -41,7 +41,7 @@ public class VillageAdditions {
         for (JigsawPiece p : shuffled) {
             newPieces.add(new Pair<>(p, 2));
         }
-        ResourceLocation something = old.func_214948_a();
+        ResourceLocation something = old.getFallback();
         JigsawManager.REGISTRY.register(new JigsawPattern(pool, something, newPieces, PlacementBehaviour.RIGID));
     }
 }

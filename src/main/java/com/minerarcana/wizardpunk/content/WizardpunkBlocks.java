@@ -33,6 +33,7 @@ public class WizardpunkBlocks {
     public static final BlockRegistryObjectGroup<OppressiveEmitter, BlockItem, ?> OPPRESSIVE_EMITTER =
             new BlockRegistryObjectGroup<>("oppressive_emitter", OppressiveEmitter::new, blockItemCreator())
                     .register(BLOCKS, ITEMS);
+
     public static final RegistryObject<OppressiveAtmosphere> OPPRESSIVE_ATMOSPHERE = BLOCKS.register(
             "oppressive_atmosphere", OppressiveAtmosphere::new);
 
